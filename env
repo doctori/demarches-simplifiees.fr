@@ -1,0 +1,123 @@
+RAILS_ENV=production
+RAILS_LOG_TO_STDOUT=true
+RAILS_SERVE_STATIC_FILES=true
+DS_ENV=production
+
+# Nom d'hôte de l'appli
+#   * Pour du dev local: localhost:3000
+#   * pour de la preprod: preprod.ds.organisme.fr (par exemple)
+#   * pour de la prod: www.demarches-simplifiees.fr
+APP_HOST="localhost:3000"
+
+# Utilisé pour les logs LogRage
+SOURCE="ds"
+
+# Clé de chiffrement de rails, cf https://api.rubyonrails.org/classes/Rails/Application.html
+SECRET_KEY_BASE="05a2d479d8e412198dabd08ef0eee9d6e180f5cbb48661a35fd1cae287f0a93d40b5f1da08f06780d698bbd458a0ea97f730f83ee780de5d4e31f649a0130cf0"
+SIGNING_KEY="aef3153a9829fa4ba10acb02927ac855df6b92795b1ad265d654443c4b14a017"
+
+# Clé de chiffrement OTP, pour 2FA
+OTP_SECRET_KEY="DEDELAD"
+
+# SAML IdP
+
+# SAML_IDP_CERTIFICATE="billybop"
+# SAML_IDP_SECRET_KEY="-----BEGIN RSA PRIVATE KEY-----\nblabla+blabla\n-----END RSA PRIVATE KEY-----\n"
+# SENDINBLUE_LOGIN_URL="https://app.sendinblue.com/account/saml/login/truc"
+
+# Database
+DB_DATABASE=ds
+DB_HOST=172.22.168.197
+DB_POOL="5"
+DB_USERNAME=ds
+DB_PASSWORD=ds
+#DATABASE_URL=postgres://ds:ds@172.22.168.197:5432/ds
+PIDFILE=/var/run/puma.pid
+# Protection simple de l'instance par mot de passe (utile pour la pre-prod)
+BASIC_AUTH_ENABLED="disabled"
+BASIC_AUTH_USERNAME=""
+BASIC_AUTH_PASSWORD=""
+
+# Object Storage pour les pièces jointes
+FOG_OPENSTACK_API_KEY="adad"
+FOG_OPENSTACK_USERNAME="dede"
+FOG_OPENSTACK_URL="https://storage-eb4.cegedim.cloud"
+FOG_OPENSTACK_REGION=""
+FOG_ENABLED="disabled" # valeur attendue: enabled
+DS_PROXY_URL=""
+
+# Service externe: authentification France Connect
+FC_PARTICULIER_ID="dede"
+FC_PARTICULIER_SECRET="dodo"
+FC_PARTICULIER_BASE_URL="https://superfc.com"
+
+# Service externe: Support Utilisateur HelpScout | Spécifique démarches-simplifiées.fr
+HELPSCOUT_MAILBOX_ID=""
+HELPSCOUT_CLIENT_ID=""
+HELPSCOUT_CLIENT_SECRET=""
+HELPSCOUT_WEBHOOK_SECRET=""
+
+# Service externe: Supervision exterieure | Spécifique démarches-simplifiées.fr
+SENTRY_ENABLED="disabled"
+SENTRY_CURRENT_ENV="development"
+SENTRY_DSN_RAILS=""
+SENTRY_DSN_JS=""
+
+# Statistiques web
+MATOMO_ENABLED="disabled"
+MATOMO_ID="73"
+# Missing MATOMO_HOST (thus hardcoded)
+
+# SMTP Provider: Send In Blue
+SENDINBLUE_BALANCING=""
+SENDINBLUE_BALANCING_VALUE=""
+SENDINBLUE_ENABLED="disabled"
+SENDINBLUE_CLIENT_KEY=""
+SENDINBLUE_SMTP_KEY=""
+SENDINBLUE_USER_NAME=""
+
+# Service externe: Fournisseur de tchat pour administrateur  | Spécifique démarches-simplifiées.fr
+CRISP_ENABLED="disabled"
+CRISP_CLIENT_KEY=""
+
+# Service externe: rattrapage de mails envoyés, utile en préprod  | Spécifique démarches-simplifiées.fr
+MAILTRAP_ENABLED="disabled"
+MAILTRAP_USERNAME=""
+MAILTRAP_PASSWORD=""
+
+# SMTP Provider: Mailjet
+MAILJET_API_KEY=""
+MAILJET_SECRET_KEY=""
+
+# API Entreprise https://api.gouv.fr/api/api-entreprise.html
+API_ENTREPRISE_KEY="dede"
+
+# Service externe: CRM de suivi de création d'administrateur  | Spécifique démarches-simplifiées.fr
+PIPEDRIVE_KEY=""
+
+# Liste des réseaux qui passent outre la génération de token pour identifier un device, ainsi que le throttling par rack-attack
+TRUSTED_NETWORKS=""
+
+# Service externe: mesure de performance d'appli Rails  | Spécifique démarches-simplifiées.fr
+SKYLIGHT_AUTHENTICATION_KEY=""
+
+# Activer ou non les logs LogRage
+LOGRAGE_ENABLED="disabled"
+
+# Service externe d'horodatage des changements de statut des dossiers (effectué quotidiennement)
+UNIVERSIGN_API_URL="https://ws.universign.eu/tsa/post/"
+UNIVERSIGN_USERPWD="not-a-real-user"
+
+# API Geo / Adresse
+API_ADRESSE_URL="https://api-adresse.data.gouv.fr"
+API_GEO_URL="https://geo.api.gouv.fr"
+
+# API Education
+API_EDUCATION_URL="https://data.education.gouv.fr/api/records/1.0"
+
+# Modifier le nb de tentatives de relance de job si echec
+# MAX_ATTEMPTS_JOBS=25
+# MAX_ATTEMPTS_API_ENTREPRISE_JOBS=5
+
+# Clé de chriffrement des données sensibles en base
+ENCRYPTION_SERVICE_SALT=""

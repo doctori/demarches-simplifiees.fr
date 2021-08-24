@@ -1,8 +1,8 @@
 FROM ruby:2.7
 
-ENV RAILS_ENV='development'
-ENV RAKE_ENV='development'
-ENV NODE_ENV='development'
+ENV RAILS_ENV='production'
+ENV RAKE_ENV='production'
+ENV NODE_ENV='production'
 RUN apt update && apt install -y libcurl3-dev libpq-dev zlib1g-dev libssl-dev libreadline-dev zlib1g-dev 
 # Add node for webpack 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
@@ -17,8 +17,9 @@ WORKDIR /opt/ds
 COPY Gemfile* ./
 RUN bundle install --jobs 20 --retry 5 --without development test
 COPY . ./
-RUN npm install
-RUN npm run webpack:build
+RUN yarn install
+#RUN /opt/ds/bin/rails webpack:install
+#RUN /opt/ds/bin/rails webpacker:build
 
 EXPOSE $PORT
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
